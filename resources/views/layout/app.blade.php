@@ -9,21 +9,37 @@
         <!-- CSRF TOKEN -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>WatchTower</title>
+        <title>{{ config( 'app.name', 'WatchTower' ) }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,900" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{  asset( 'css/app.css' ) }}">
+
+        @yield( 'head' )
 
     </head>
     <body>
 
     <div id="app">
 
-        @include( 'layout.nav' )
+        <header id="nav-container" class="nav-container">
+            @include( 'layout.nav' )
+        </header>
 
-        @yield( 'content' )
+        <div id="app-container" class="app-container">
+
+            <div id="sidebar-container" class="sidebar-container">
+                @include( 'layout.sidebar' )
+            </div>
+
+            <div id="content-container" class="content-container">
+                @yield( 'content' )
+            </div>
+
+
+        </div>
 
     </div>
 
