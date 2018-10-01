@@ -1,11 +1,22 @@
 <nav id="main-navigation">
 
-    <div class="">
-        <p>WT</p>
+    <div class="main-navigation__logo">
+        <img src="" alt="">
     </div>
 
-    <ul id="">
+    <div class="main-navigation__search">
+        {{-- Try checking on vue search?--}}
+    </div>
 
-    </ul>
+    <div class="main-navigation__tools">
+
+    </div>
+
+    <div class="main-navigation__user">
+        <img src="" alt="">
+        <div class="main-navigation__user__more">
+
+        </div>
+    </div>
 
 </nav>

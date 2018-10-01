@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/', 'DashboardController@index' )->name('dashboard');
+Route::get( '/', 'DashboardController@index' )->name( 'dashboard' );
+
+
+Route::get( '/websites', 'WebsiteController@create' )->name( 'websites' );

@@ -8,7 +8,7 @@
 // Bulma
 @import '~bulma/bulma';
 
-// Generic elements
+// Containers
 // --------------------------
 @import 'containers/app-container';
 
@@ -17,3 +17,7 @@
 // --------------------------
 @import 'objects/body';
 
+
+//Application Components
+//---------------------------
+@import 'components/sidebar';

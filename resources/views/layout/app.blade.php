@@ -28,11 +28,19 @@
             @include( 'layout.nav' )
         </header>
 
-        <div id="app-container" class="app-container">
+        <div class="sidebar-collection">
+            <div id="mini-sidebar-container" class="mini-sidebar-container">
+                @include( 'layout.mini-sidebar' )
+            </div>
 
             <div id="sidebar-container" class="sidebar-container">
+
                 @include( 'layout.sidebar' )
             </div>
+
+        </div>
+
+        <div id="app-container" class="app-container">
 
             <div id="content-container" class="content-container">
                 @yield( 'content' )

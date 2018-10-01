@@ -1,0 +1,15 @@
+#sidebar-container{
+
+  @import'_sidebar/sidebar-user';
+
+  #main-sidebar{
+    height: inherit;
+    background: #313131;
+
+    @import '_sidebar/sidebar-navigation';
+
+    @import '_sidebar/sidebar-stats';
+  }
+
+
+}
