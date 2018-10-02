@@ -1,3 +1,22 @@
 .sidebar-stats{
-  background-color: #313131;
+  background-color: #2A2A2A;
+  width: 85%;
+  padding: 1em 1.25em;
+  margin: 1em auto;
+  border-radius: 5px;
+
+  .sidebar-stats__head{
+
+
+    .sidebar-stats__head__title{
+      font-size: 0.8em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  .sidebar-stats__body{
+
+  }
+
 }

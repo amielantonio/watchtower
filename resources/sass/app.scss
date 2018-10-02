@@ -2,11 +2,30 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Muli');
 
+//Install Dependencies
+@import "dependencies/fontawesome/scss/fontawesome-pro-core";
+@import "dependencies/fontawesome/scss/fontawesome-pro-brands";
+@import "dependencies/fontawesome/scss/fontawesome-pro-light";
+@import "dependencies/fontawesome/scss/fontawesome-pro-regular";
+@import "dependencies/fontawesome/scss/fontawesome-pro-solid";
+
+
 // Variables
 @import 'variables';
 
-// Bulma
-@import '~bulma/bulma';
+// Materialize
+@import '~materialize-css/dist/css/materialize.min.css';
+
+//Normalize
+@import '~normalize.css/normalize.css';
+@import 'normalize';
+
+// Tools
+// --------------------------
+// Contain all the functions and mixins for the application
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/mixins/breakpoints";
 
 // Containers
 // --------------------------
@@ -20,4 +39,6 @@
 
 //Application Components
 //---------------------------
+@import 'components/nav';
 @import 'components/sidebar';
+@import 'components/mini-sidebar-tools';

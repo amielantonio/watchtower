@@ -13,5 +13,6 @@
 
 Route::get( '/', 'DashboardController@index' )->name( 'dashboard' );
 
-
 Route::get( '/websites', 'WebsiteController@create' )->name( 'websites' );
+
+Route::get('/control-centre', 'ControlCentreController@index')->name( 'control-centre' );

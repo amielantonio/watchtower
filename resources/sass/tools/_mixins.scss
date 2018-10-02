@@ -1,0 +1,231 @@
+/**
+
+Generic Mixins
+--------------------------------------------
+All Generic mixins are placed in this file. for more specific mixins
+check the file under sass/tools/mixins folder
+
+*/
+
+
+
+//Psuedo CSS classes ::before & ::after
+@mixin pseudo( $display: block, $position: absolute, $content: ""){
+  content: $content;
+  display: $display;
+  position: $position;
+}
+
+//Responsive Ratio
+// Used for creating scalable elements which are images or background images that maintain a ratio
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+
+
+//CSS Triangles
+// mixin for creating CSS triangles, use wisely
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+  @include pseudo($pos: $position);
+  width: 0;
+  height: 0;
+  @if $round {
+    border-radius: 3px;
+  }
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+    margin-top: 0 - round( $size / 2.5 );
+  } @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    margin-bottom: 0 - round( $size / 2.5 );
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    margin-right: -$size;
+  } @else if  $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    margin-left: -$size;
+  }
+}
+
+
+//Placeholders
+@mixin input-placeholder( $color ) {
+  &.placeholder { color: $color }
+  &:-moz-placeholder { color: $color }
+  &::-moz-placeholder { color: $color }
+  &:-ms-input-placeholder { color: $color }
+  &::-webkit-input-placeholder { color: $color }
+}
+
+
+//Keyframe Rules
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+
+//Animations
+@mixin animation($name, $duration, $timing, $delay, $iteration) {
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+
+  -webkit-animation-timing-function: $timing;
+  -moz-animation-timing-function: $timing;
+  -o-animation-timing-function: $timing;
+  animation-timing-function: $timing;
+
+  -webkit-animation-iteration-count: $iteration;
+  -moz-animation-iteration-count: $iteration;
+  -o-animation-iteration-count: $iteration;
+  animation-iteration-count: $iteration;
+}
+
+
+//Background Image with linear Gradient overlay
+@mixin background-image-overlay($image, $image-pos: center center, $color: #000, $opacity: 0.7, $fixed: fixed, $size: cover){
+  background: linear-gradient( to right, rgba($color, $opacity),rgba($color, $opacity)), url($image) $image-pos $fixed no-repeat;
+  background-size: $size;
+}
+
+//Section container mixin
+@mixin container-spacing($padding: 0 120px, $margin: 0){
+  width: 100%;
+  padding: 0;
+  margin: $margin;
+}
+
+//Box containers
+@mixin box-container($width, $height: $width){
+
+  width: $width;
+  height: $height;
+
+}
+
+//Opacity
+@mixin opacity($opacity){
+  opacity: $opacity;
+
+  $opacity-ie: $opacity * 100;
+  filter: alpha( opacity = $opacity-ie)
+
+}
+
+//Flexbox mixin
+@mixin flex( $justify-content: flex-start, $align-items: flex-start, $flex-direction: row, $flex-wrap: wrap){
+  display: flex;
+  display: -ms-flexbox;
+
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+
+  -ms-flex-wrap: $flex-wrap;
+  -webkit-flex-wrap: $flex-wrap; //included webkit
+  $flex-wrap: $flex-wrap;
+}
+
+//Truncate
+@mixin truncate( $truncation-boundary ) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+//Transitions
+@mixin transitions( $args ){
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin filter( $args){
+  -webkit-filter: $args;
+  -moz-filter: $args;
+  -ms-filter: $args;
+  -o-filter: $args;
+  filter: $args;
+}
+
+
+
+@mixin spacing-utilities(){
+  $spacing-settings: (
+    "spaces"         : (
+      "margin"      : "m",
+      "padding"     : "p"
+    ),
+    "positions"      : (
+      "top"         : "t",
+      "bottom"      : "b",
+      "right"       : "r",
+      "left"        : "l",
+    )
+
+  );
+
+  @each $space-key, $space in map_get($spacing-settings, "spaces"){
+    @each $position-key, $position in map_get($spacing-settings, "positions"){
+
+      $ctr: 0;
+      @while $ctr <= 120{
+
+        @if $ctr == 0{
+          ._#{$space}-#{$position}--auto{
+            #{$space-key}-#{$position-key}: auto;
+          }
+        }
+        @else {
+          ._#{$space}-#{$position}--#{$ctr}{
+            #{$space-key}-#{$position-key}: #{$ctr}px !important;
+          }
+        }
+
+
+
+        $ctr: $ctr + 10;
+      }
+
+
+    } // END EACH POSITIONS
+  }// END EACH SPACES
+
+}

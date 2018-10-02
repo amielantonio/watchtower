@@ -7,12 +7,8 @@
   margin-left: 300px;
 
   .content-container{
-    height: inherit;
-    width: 100%;
-    padding: 1em;
-
+    width: auto;
     overflow-y: auto;
-
   }
 
 }
@@ -25,11 +21,11 @@
   align-items: center;
   justify-content: flex-start;
 
-
   .mini-sidebar-container{
     height: 100vh;
     min-width: 50px;
-    background: $green;
+    //background: linear-gradient(-40deg, #2962ff, #0091ea, #03a9f4, #18ffff );
+    background-color: #2962ff;
   }
 
   .sidebar-container{
@@ -38,15 +34,3 @@
     color: #fff;
   }
 }
-
-.nav-container{
-  min-height: 165px;
-  width: 100%;
-
-  background: linear-gradient( to right, rgba( #313131, 0.75 ), rgba( #313131, 0.75 ) ), url( '/images/app/header-bg2.jpg' ) 10% 30% no-repeat;
-  background-size: cover;
-  color: #fff;
-
-}
-
-

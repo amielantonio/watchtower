@@ -26,6 +26,10 @@
 
         <header id="nav-container" class="nav-container">
             @include( 'layout.nav' )
+
+            <div class="app-title">
+                <h1 class="title">@yield( 'app-title' )</h1>
+            </div>
         </header>
 
         <div class="sidebar-collection">
