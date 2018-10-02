@@ -1,0 +1,125 @@
+/**
+Breakpoint mixins - (responsive breakpoints)
+----------------------------------------------
+ */
+
+
+
+//Mobile first Breakpoints using min-width
+
+@mixin min-breakpoint--phablet{
+  @media only screen and ( min-width: map-get( $media-breakpoints, "phablet") ){
+    @content
+  }
+}
+
+@mixin min-breakpoint--tablet{
+  @media only screen and ( min-width: map-get( $media-breakpoints, "tablet") ){
+    @content
+  }
+}
+
+@mixin min-breakpoint--desktop{
+  @media only screen and ( min-width: map-get( $media-breakpoints, "desktop") ){
+    @content
+  }
+}
+
+@mixin min-breakpoint--lg-desktop{
+  @media only screen and ( min-width: map-get( $media-breakpoints, "lg-desktop") ){
+    @content
+  }
+}
+
+@mixin min-breakpoint--xl-desktop{
+  @media only screen and ( min-width: map-get( $media-breakpoints, "xl-desktop") ){
+    @content
+  }
+}
+
+//Desktop First breakpoints using max-width
+
+@mixin max-breakpoint--phone{
+  $width: map-get( $media-breakpoints, "phablet") - 1px;
+  @media only screen and ( max-width: $width ){
+    @content
+  }
+}
+
+@mixin max-breakpoint--phablet{
+  $width: map-get( $media-breakpoints, "tablet") - 1px;
+  @media only screen and ( max-width: $width ){
+    @content
+  }
+}
+
+@mixin max-breakpoint--tablet{
+  $width: map-get( $media-breakpoints, "desktop") - 1px;
+  @media only screen and ( max-width: $width ){
+    @content
+  }
+}
+
+@mixin max-breakpoint--desktop{
+  $width: map-get( $media-breakpoints, "lg-desktop") - 1px;
+  @media only screen and ( max-width: $width ){
+    @content
+  }
+}
+
+@mixin max-breakpoint--lg-desktop{
+  $width: map-get( $media-breakpoints, "xl-desktop") - 1px;
+  @media only screen and ( max-width: $width ){
+    @content
+  }
+}
+
+
+//Media Queries for targeting single segment of screen sizes
+//Using Min and max
+
+@mixin only-breakpoint--phone{
+  $width: map-get( $media-breakpoints, "phone") - 1px;
+  @media only screen and ( max-width: $width ){
+    @content
+  }
+}
+
+@mixin only-breakpoint--phablet{
+  $width: map-get( $media-breakpoints, "phablet");
+  $max-width: map-get( $media-breakpoints, "tablet") - 1px;
+  @media only screen and ( min-width: $width ) and ( max-width: $max-width ){
+    @content
+  }
+}
+
+@mixin only-breakpoint--tablet{
+  $width: map-get( $media-breakpoints, "tablet");
+  $max-width: map-get( $media-breakpoints, "desktop") - 1px;
+  @media only screen and ( min-width: $width ) and ( max-width: $max-width ){
+    @content
+  }
+}
+
+@mixin only-breakpoint--desktop{
+  $width: map-get( $media-breakpoints, "desktop");
+  $max-width: map-get( $media-breakpoints, "lg-desktop") - 1px;
+  @media only screen and ( min-width: $width ) and ( max-width: $max-width ){
+    @content
+  }
+}
+
+@mixin only-breakpoint--lg-desktop{
+  $width: map-get( $media-breakpoints, "lg-desktop");
+  $max-width: map-get( $media-breakpoints, "xl-desktop") - 1px;
+  @media only screen and ( min-width: $width ) and ( max-width: $max-width ){
+    @content
+  }
+}
+
+@mixin only-breakpoint--xl-desktop{
+  $width: map-get( $media-breakpoints, "xl-desktop");
+  @media only screen and ( min-width: $width ){
+    @content
+  }
+}

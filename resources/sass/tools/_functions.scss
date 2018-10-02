@@ -1,0 +1,60 @@
+/**
+
+Functions for styling
+--------------------------------------------
+All styling that are needed to be extended and usable functions
+will be located in this file.
+
+ */
+
+
+// Center an element using margin:auto
+%margin--auto{
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+
+//Apply a clearfix to an element
+%clearfix{
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//Visually hide an element for accessibility purposes
+%visually-hidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+
+//Centers the Element inside the parent container
+
+%center--absolute{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate( -50%, -50% );
+  -ms-transform: translate( -50%, -50% );
+  transform: translate( -50%, -50% );
+}
+
+%center--block{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

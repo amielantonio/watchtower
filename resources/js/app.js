@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+require('materialize-css/dist/js/materialize.js');
+
 
 window.Vue = require('vue');
 
@@ -16,6 +18,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('sidebar-user', require('./components/sidebar/sidebar-user'));
+Vue.component('sidebar-stats', require('./components/sidebar/sidebar-stats'));
 
 const app = new Vue({
   el: '#app',

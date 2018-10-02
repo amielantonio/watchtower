@@ -1,0 +1,35 @@
+.mini-sidebar-tools{
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: column;
+
+  padding-top: 165px;
+  height: inherit;
+
+  .mini-tools{
+
+    margin: 1em 0;
+
+    &:first-child{
+      margin-top: 0;
+    }
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #fff;
+      padding: 0 15px;
+      display: block;
+    }
+
+  }
+
+  .mini-tools.bottom{
+    margin-top: auto;
+    margin-bottom: 45px;
+  }
+}

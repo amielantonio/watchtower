@@ -2,20 +2,29 @@
   width: 100%;
   position: relative;
   background: #2A2A2A;
+  padding:0;
+  margin:0;
+  li{
 
-  &>li{
-
+    //States
     &:hover{
       background-color: #1D1D1D;
     }
-    &>a{
+
+    a{
       display: block;
       padding: 1em 1.25em;
       color: #fff;
       text-transform: uppercase;
+      font-size: 0.85em;
+      font-weight: 600;
 
       &.active{
         background-color: #202020;
+      }
+
+      span{
+        margin-left: 20px;
       }
 
     }

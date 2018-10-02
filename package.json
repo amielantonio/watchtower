@@ -20,7 +20,8 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "bulma": "^0.7.1",
+        "materialize-css": "^1.0.0-rc.2",
+        "normalize.css": "^8.0.0",
         "vue-router": "^3.0.1"
     }
 }

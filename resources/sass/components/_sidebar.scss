@@ -1,14 +1,26 @@
 #sidebar-container{
 
-  @import'_sidebar/sidebar-user';
+  .watchtower-logo{
+    background: rgba( #313131, 0.75 );
+    height: 165px;
+    width: auto;
+  }
+
 
   #main-sidebar{
-    height: inherit;
+    height: calc(100vh - 165px);
     background: #313131;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: column;
 
     @import '_sidebar/sidebar-navigation';
 
     @import '_sidebar/sidebar-stats';
+
+    @import'_sidebar/sidebar-user';
   }
 
 
